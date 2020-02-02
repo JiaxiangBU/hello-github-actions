@@ -1,0 +1,273 @@
+---
+title: GitHub Actions 学习笔记
+author: 李家翔
+date: "`r Sys.Date()`"
+output: 
+    bookdown::gitbook:
+        split_by: none
+        split_bib: TRUE
+        df_print: paged
+bibliography: refs/add.bib
+---
+
+```{r setup,echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+1. 使用 RMarkdown 的 `child` 参数，进行文档拼接。
+1. 这样拼接以后的笔记方便复习。
+1. 相关问题提交到
+    <a class="github-button" href="https://github.com/JiaxiangBU/tutoring2/issues" data-show-count="true" aria-label="Issue JiaxiangBU/tutoring on GitHub">Issue</a>
+
+# 开始
+
+Add a Dockerfile
+Start your action by creating a Dockerfile
+
+https://lab.github.com/github/hello-github-actions!
+
+> GitHub Learning Lab will create a repository named hello-github-actions on your GitHub account.
+
+> You cannot register for a course until you have installed the app.
+
+安装 App
+
+> Need tighter permissions? You can also install the app each time you register for a new course/repository.
+> Limit GitHub Learning Lab to Course Repositories
+
+完成后，就开始了，需要一个项目`learn_make`授权 app。
+
+***
+
+> Hello, GitHub Actions!
+> Your "Hello, World" for GitHub Actions
+> GitHub Actions
+> Workflows
+> Hello World
+> [JiaxiangBU/hello-github-actions]
+
+
+[JiaxiangBU/hello-github-actions]: https://github.com/JiaxiangBU/hello-github-actions
+
+开始学习 GitHub Actions。
+
+# Add a Dockerfile
+
+> Start your action by creating a Dockerfile
+
+- [ ] 按照第一个 issue 1 的要求完成作业
+
+https://github.com/JiaxiangBU/hello-github-actions/issues/1
+
+```bash
+$ git clone https://github.com/JiaxiangBU/hello-github-actions.git | clip
+Cloning into 'hello-github-actions'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+```
+
+```bash
+$ cd hello-github-actions/
+$ git branch first-branch
+```
+
+- [ ] git bash copy shortcut
+
+```bash
+$ git checkout first-branch
+Switched to branch 'first-branch'
+```
+
+```bash
+$ mkdir action-a
+```
+
+```r
+file.edit("../hello-github-actions/action-a/Dockerfile")
+```
+
+```bash
+$ git status | clip
+On branch first-branch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	action-a/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+```bash
+$ git add .
+$ git commit -m 'add Dockerfile'
+[first-branch 730362e] add Dockerfile
+ 1 file changed, 14 insertions(+)
+ create mode 100644 action-a/Dockerfile
+```
+
+```bash
+$ git push --set-upstream origin first-branch
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 580 bytes | 580.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'first-branch' on GitHub by visiting:
+remote:      https://github.com/JiaxiangBU/hello-github-actions/pull/new/first-branch
+remote:
+To https://github.com/JiaxiangBU/hello-github-actions.git
+ * [new branch]      first-branch -> first-branch
+Branch 'first-branch' set up to track remote branch 'first-branch' from 'origin'.
+```
+
+然后操作 pull request 完成。
+
+# R project 进行
+
+```r
+git2r::add(path = '.')
+> git2r::commit(message = "Add r proj metadata.")
+[5a60650] 2020-02-02: Add r proj metadata.
+```
+
+# Add an entrypoint script
+
+https://github.com/JiaxiangBU/hello-github-actions/pull/2#issuecomment-581152177
+
+```r
+file.edit("entrypoint.sh")
+```
+
+```bash
+$ git add .
+$ git commit -m 'add shell script'
+[first-branch 15ef10d] add shell script
+ 1 file changed, 3 insertions(+)
+ create mode 100644 entrypoint.sh
+$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 934 bytes | 467.00 KiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/JiaxiangBU/hello-github-actions.git
+   730362e..15ef10d  first-branch -> first-branch
+```
+
+# Start your workflow file
+
+https://github.com/JiaxiangBU/hello-github-actions/pull/2#issuecomment-581153242
+
+```r
+dir.create(".github/workflows", recursive = TRUE)
+file.edit(".github/workflows/main.yml")
+```
+
+```bash
+$ git add .
+$ git commit -m 'add workflow yaml'
+[first-branch c221d61] add workflow yaml
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .github/workflows/main.yml
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 418 bytes | 418.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/JiaxiangBU/hello-github-actions.git
+   1b99510..c221d61  first-branch -> first-branch
+```
+
+# Run an action from your workflow file
+
+> - `name: A workflow for my Hello World file` gives your workflow a name. This name appears on any pull request or in the Actions tab. The name is especially useful when there are multiple workflows in your repository.
+> - `on: push` indicates that your workflow will execute anytime code is pushed to your repository, using the [`push`](https://developer.github.com/v3/activity/events/types/#pushevent) event.
+
+```yaml
+jobs:
+  build:
+    name: Hello world action
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./action-a
+      env:
+        MY_NAME: "Mona"
+```
+
+这里找到了定义的`MY_NAME: "Mona"`。
+
+```bash
+$ git add .
+$ git commit -m 'add job'
+[first-branch bbe5fbd] add job
+ 1 file changed, 10 insertions(+)
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 511 bytes | 255.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/JiaxiangBU/hello-github-actions.git
+   c221d61..bbe5fbd  first-branch -> first-branch
+```
+
+# Seeing your Action in action
+
+> - `uses: actions/checkout@v1` uses a community action called [`checkout`](https://github.com/actions/checkout) to allow the workflow to access the contents of the repository
+> - `uses: ./action-a` provides the relative path the action we've created in the `action-a` directory of the repository
+> - `env`: is used to specify the environment variables that will be available to your action in the runtime environment. In this case, the environment variable is `MY_NAME`, and it is currently initialized to `"Mona"`.
+
+所以这个项目必须要公开的，因为 workflow 要访问这个项目。
+
+> This action will run any time a new commit is created or pushed to the remote repository. Since you just created a commit, the workflow should have been triggered. This might take a few minutes since it's the first time running in this repository.
+
+每次 push 都会调用这个 GitHub Actions。
+并且第一次会比较花时间。
+
+# Trigger the workflow
+
+https://github.com/JiaxiangBU/hello-github-actions/actions
+查看效果。
+
+可以创建 badge
+
+![A workflow for my Hello World file](https://github.com/JiaxiangBU/hello-github-actions/workflows/A%20workflow%20for%20my%20Hello%20World%20file/badge.svg)
+
+# Incorporate the workflow
+
+https://github.com/JiaxiangBU/hello-github-actions/pull/2#pullrequestreview-351953751
+
+
+见 https://github.com/JiaxiangBU/hello-github-actions/runs/421904399?check_suite_focus=true#step:3:58
+
+这是生成的`Hello world my name is Mona`
+
+> As a final step, merge this pull request so the action will be a part of the master branch.
+> - Your merge should trigger your action again, check it out in the [Actions tab](https://github.com/JiaxiangBU/hello-github-actions/actions).
+https://github.com/JiaxiangBU/hello-github-actions/issues/3
+
+见 https://github.com/JiaxiangBU/hello-github-actions/runs/421913765?check_suite_focus=true
+
+
+
+
+# 附录 {-}
+
+# 参考文献 {-}

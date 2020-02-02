@@ -1,5 +1,38 @@
-## Welcome to "Hello World" with GitHub Actions
 
-This course will walk you through writing your first action and using it with a workflow file. 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-**Ready to get started? Navigate to the first issue.**
+# hello-github-actions
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of hello-github-actions is to …
+
+<h4 align="center">
+
+**Code of Conduct**
+
+</h4>
+
+<h6 align="center">
+
+Please note that the `hello-github-actions` project is released with a
+[Contributor Code of
+Conduct](https://github.com/JiaxiangBU/hello-github-actions/blob/master/CODE_OF_CONDUCT.md).<br>By
+contributing to this project, you agree to abide by its terms.
+
+</h6>
+
+<h4 align="center">
+
+**License**
+
+</h4>
+
+<h6 align="center">
+
+CC0 © [Jiaxiang
+Li](https://github.com/JiaxiangBU/hello-github-actions/blob/master/LICENSE.md)
+
+</h6>
