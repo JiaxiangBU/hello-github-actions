@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # hello-github-actions
 
 <!-- badges: start -->
+![A workflow for my Hello World file](https://github.com/JiaxiangBU/hello-github-actions/workflows/A%20workflow%20for%20my%20Hello%20World%20file/badge.svg)
 <!-- badges: end -->
 
 The goal of hello-github-actions is to ...
